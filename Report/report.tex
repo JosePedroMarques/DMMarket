@@ -1,0 +1,99 @@
+\documentclass{llncs}
+
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}  
+\usepackage[utf8]{inputenc}
+\usepackage[usenames,dvipsnames,table]{xcolor}
+\bibliographystyle{splncs}
+\usepackage{url}
+\usepackage[section]{placeins}
+
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{chngpage}
+\usepackage{fancyhdr}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{algorithmicx}
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+
+\lhead{\color{gray}\footnotesize ECAC/SSIM - <INSERT TITLE HERE>}
+\rhead{\color{gray}\footnotesize José Pedro Marques, Tiago Pereira, André Maia}
+\lfoot{\color{gray}\footnotesize \rightmark}
+\rfoot{\color{gray} \footnotesize Page. \thepage} 
+\cfoot{}
+
+
+
+\begin{document}
+
+\title{<INSERT TITLE HERE>}
+\subtitle{Data Mining and Machine Learning / Intelligent Systems, Interaction and Multimedia Seminar}
+\author{Jos\'e Pedro Marques, Tiago Pereira, André Maia}
+\institute{Faculdade de Engenharia da Universidade do Porto}
+\date{May 10, 2012}
+\maketitle
+
+\begin{abstract}
+Data Mining is a very broad area, with several algorithms applicable to the same problem. The purpose of this paper is to show a framework that given a specific problem as input, solves it using the best possible algorithm. To reach this goal, a distributed multi-agent system that
+tries to negotiate the best approach to each problem will be implemented, and this system will be tested with the data from the Portuguese Institute of Statistics, on an error detection problem.
+\end{abstract}
+
+\section{Introduction}
+
+The purpose of this article is to present the framework that will be
+developed, as well as all the protocols that will be implemented. To best demonstrate the inner workings of the framework, a specific problem
+was chosen.
+
+This article will include a description of the problem and the data available (Section X). This is followed by a description of the chosen algorithms. Then the framework's architecture is explained (Section X), and how each agent was implemented (Section X), followed by the negotiation process (Section X). Finally, the results are shown and a small conclusion is made (Section X)and possible future improvements are discussed (Section X)
+
+
+\section{The Problem}
+
+
+\subsection{Description}
+
+The information from each transaction a Portuguese company makes with an EU country reaches the Portuguese Institute of Statistics(INE) through the INTRASTAT form. In this form, the company provides information  about the transaction type (import/export), the item id, the weight of goods traded, the total cost, etc. Then this data is manually inserted into a database at INE. Figure 1 presents an excerpt of the data (é preciso perceber os dados).
+
+As in all manual processes, both the form filling and the insertion in the database are error prone, which could lead to incorrect/inconsistent data. For instance, an incorrectly introduced item id will associate a transaction with the wrong item. While some errors may be irrelevant to some statistics, some errors can influence them greatly.
+
+Therefore, when all of the transactions relative to a month have been entered into the database, they are manually verified with
+the aim of detecting and correcting as many errors as possible. In this search, the experts try to detect unusual values in the values that describe the transactions.
+Given that the number of transactions declared monthly is in the order of tens of thousands, this is a very costly process.
+
+The idea then is to automatically select a subset of the
+transactions that includes almost all the errors that the experts would detect by looking at all the transactions.
+
+
+\subsection{Data}
+
+\subsection{Chosen Algorithms}
+
+
+\section{Framework}
+
+
+\subsection{Architecture}
+
+\subsection{Agents}
+
+\subsection{Negotiation Process}
+
+
+
+\section{Results}
+
+
+\section{Conclusion}
+
+ 
+\begin{thebibliography}{9}
+
+\end{thebibliography}
+
+
+\end{document}
+
