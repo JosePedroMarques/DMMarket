@@ -68,6 +68,13 @@ transactions that includes almost all the errors that the experts would detect b
 
 \subsection{Data}
 
+The data is organized in 2 files per month, one with the outgoing transactions and one with the incoming. Each line is a transaction, with 18 attributes, such as item id, price paid, weight,etc. The last attribute is a boolean attribute error, which indicates if that transaction contains (or not) an error.
+
+\subsection{Difficulties}
+
+One of the problems with the data is related to the attribute "weight", as it might contain null values when the weight of an item as less than a given threshold. But the biggest difficulty we will face is
+the obviously unbalanced classes, as we expect only a few errors in the totality of the transactions. Therefore, the algorithms must be carefully chosen, having this problem in mind.
+
 \subsection{Chosen Algorithms}
 
 \subsubsection{Clustering for Outlier Detection}
@@ -80,6 +87,8 @@ Every value assigned to a small cluster containing significantly fewer points th
 Algorithms based on decision trees, learn from a set of pre-classified examples, and build a model of the regularities found used to classify new cases.
 This kind of technique is better suited for the detection of outliers, where an isolated branch is classified has an outlier.
 This is an algorithm that as the advantage that it doesn't require the need to define the number of clusters, and it is not scalable, this is, he's complexity over time is he's numbers of objects (O(n2)). Although the interpretation of results can be subjective.
+
+\subsubsection{Cell based outlier detection}
 
 \begin{thebibliography}{9}
 
