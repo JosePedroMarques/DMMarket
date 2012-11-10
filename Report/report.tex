@@ -6,16 +6,18 @@
 \usepackage[usenames,dvipsnames,table]{xcolor}
 \bibliographystyle{splncs}
 \usepackage{url}
-\usepackage[section]{placeins}
+%\usepackage[section]{placeins}
 
 \usepackage{verbatim}
 \usepackage{graphicx}
 \usepackage{booktabs}
-\usepackage{chngpage}
+%\usepackage{chngpage}
 \usepackage{fancyhdr}
-\usepackage{algorithm}
-\usepackage{algpseudocode}
-\usepackage{algorithmicx}
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
+%\usepackage{algorithmicx}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
 
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0pt}
@@ -26,13 +28,11 @@
 \rfoot{\color{gray} \footnotesize Page. \thepage} 
 \cfoot{}
 
-
-
 \begin{document}
 
 \title{<INSERT TITLE HERE>}
 \subtitle{Data Mining and Machine Learning / Intelligent Systems, Interaction and Multimedia Seminar}
-\author{Jos\'e Pedro Marques, Tiago Pereira, André Maia}
+\author{José Pedro Marques, Tiago Pereira, André Maia}
 \institute{Faculdade de Engenharia da Universidade do Porto}
 \date{May 10, 2012}
 \maketitle
@@ -53,7 +53,6 @@ This article will include a description of the problem and the data available (S
 
 \section{The Problem}
 
-
 \subsection{Description}
 
 The information from each transaction a Portuguese company makes with an EU country reaches the Portuguese Institute of Statistics(INE) through the INTRASTAT form. In this form, the company provides information  about the transaction type (import/export), the item id, the weight of goods traded, the total cost, etc. Then this data is manually inserted into a database at INE. Figure 1 presents an excerpt of the data (é preciso perceber os dados).
@@ -67,33 +66,23 @@ Given that the number of transactions declared monthly is in the order of tens o
 The idea then is to automatically select a subset of the
 transactions that includes almost all the errors that the experts would detect by looking at all the transactions.
 
-
 \subsection{Data}
 
 \subsection{Chosen Algorithms}
 
+\subsubsection{Clustering for Outlier Detection}
 
-\section{Framework}
+This technique is not usually used for outlier detection, but it can be used for that task.
+Every value assigned to a small cluster containing significantly fewer points than the others, is considered an outlier.
 
+\subsubsection{Decision Trees for Outlier Detection}
 
-\subsection{Architecture}
+Algorithms based on decision trees, learn from a set of pre-classified examples, and build a model of the regularities found used to classify new cases.
+This kind of technique is better suited for the detection of outliers, where an isolated branch is classified has an outlier.
+This is an algorithm that as the advantage that it doesn't require the need to define the number of clusters, and it is not scalable, this is, he's complexity over time is he's numbers of objects (O(n2)). Although the interpretation of results can be subjective.
 
-\subsection{Agents}
-
-\subsection{Negotiation Process}
-
-
-
-\section{Results}
-
-
-\section{Conclusion}
-
- 
 \begin{thebibliography}{9}
 
 \end{thebibliography}
 
-
 \end{document}
-
