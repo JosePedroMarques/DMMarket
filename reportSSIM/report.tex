@@ -30,18 +30,18 @@
 
 \begin{document}
 
-\title{Error detection in transaction's data}
-\subtitle{Data Mining and Machine Learning}
-\author{José Pedro Marques, Tiago Pereira}
+\title{SSIM TITLE}
+\subtitle{Intelligent Systems, Interaction and Multimedia Seminar}
+\author{José Pedro Marques, André Maia}
 \institute{Faculdade de Engenharia da Universidade do Porto}
 \date{November 11, 2012}
 \maketitle
 
-\begin{comment}
+
 \begin{abstract}
 Data Mining is a very broad area, with several algorithms applicable to the same problem. The purpose of this paper is to show a framework that given a specific problem as input, solves it using the best possible algorithm. To reach this goal, a distributed multi-agent system that tries to negotiate the best approach to each problem will be implemented, and this system will be tested with the data from the Portuguese Institute of Statistics, on an error detection problem.
 \end{abstract}
-\end{comment}
+
 
 \section{Introduction}
 
@@ -86,9 +86,67 @@ This is an algorithm that as the advantage that it doesn't require the need to d
 This algorithm can be described has a fast outlier detection algorithm for large datasets. This algorithm can avoid large computations on the majority part of dataset by filtering the initial dataset.
 A large dataset is loaded into memory by blocks, and the data are placed into appropriate cells based on their values. Each cell holds a certain number of data, which represents the cell's density. Data located in high density cells who have no nearness relationship with local outlier factor calculation are filtered. And we record these cells density for the next block of data filled in. The final calculation will be done on those data in low density cells. This way, we can handle a large dataset which can't be loaded into memory all at once, improving the algorithm's efficiency by reducing many useless computations. The time complexity is O(N).
 
+
+\section{The Framework}
+
+\subsection{Architecture}
+
+The Market will be implemented as a web-service, to facilitate the distribution of the whole process. Each agent then communicates with the Market as depicted in figure \ref{fig:marketArc}. 
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{SSIM_architecture}
+\caption{System Architecture}
+\label{fig:marketArc}
+\end{figure}
+
+
+\subsection{Agents}
+
+Each algorithm will be implemented as an independent agent, that communicates with the market. 
+
+The pre-processing algorithms will receive the raw problem data as input and are responsible for cleaning the data (remove duplicates, remove nulls, date conversion, etc.), while each Machine Learning algorithm will receive the clean versions of the data and try to solve the problem. 
+
+
+
+
+
+\subsection{Negotiation Process}
+
+
+
+
+\section{Technology}
+
+The Market will be implemented in Ruby on Rails \cite{tec:RoR} and each agent will be implemented in Java, with the help of JRI \cite{tec:JRI}, to make use of the already implemented algorithms in R \cite{tec:R}
+
+The communication between the Market and each agent will follow the REST architecture \cite{tec:REST} through JSON \cite{tec:JSON} messages.
+
 \begin{thebibliography}{9}
-\bibitem{itc:2007}
+\bibitem{art:scc}
 Soares, Costa, Cortez, Cavalho - Error Detection in Foreign Trade Data   using Statistical and Machine Learning Algorithms
+
+\bibitem{tec:RoR}
+Ruby on Rails:
+\url{http://rubyonrails.org/}
+
+\bibitem{tec:JRI}
+JRI - Java/R Interface : 
+\url{http://www.rforge.net/JRI/}
+
+\bibitem{tec:R}
+The R Project for Statistical Computing :
+\url{http://www.r-project.org/}
+
+\bibitem{tec:REST}
+Representational State Transfer (REST) :
+\url{http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm}
+
+\bibitem{tec:JSON}
+JSON :
+\url{http://www.json.org/}
+
+
+
 \end{thebibliography}
 
 \end{document}
