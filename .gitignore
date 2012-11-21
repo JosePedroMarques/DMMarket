@@ -8,3 +8,4 @@
 *.tex~
 *.aux
 report.log
+report.synctex.gz
