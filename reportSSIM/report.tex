@@ -43,6 +43,7 @@ Data Mining is a very broad area, with several algorithms applicable to the same
 \end{abstract}
 
 
+
 \section{Introduction}
 
 The purpose of this article is to present the framework that will be developed, as well as all the protocols that will be implemented. To best demonstrate the inner workings of the framework, a specific problem was chosen.
@@ -80,7 +81,7 @@ Every value assigned to a small cluster containing significantly fewer points th
 \subsubsection{Decision Trees for Outlier Detection}
 Algorithms based on decision trees, learn from a set of pre-classified examples, and build a model of the regularities found used to classify new cases.
 This kind of technique is better suited for the detection of outliers, where an isolated branch is classified has an outlier.
-This is an algorithm that as the advantage that it doesn't require the need to define the number of clusters, and it is not scalable, that is, his complexity over time is his number of objects (O(n*n)). Although the interpretation of results can be subjective.
+This is an algorithm that as the advantage that it doesn't require the need to define the number of clusters, and it is not scalable, that is, its complexity over time depends on the number of objects (O($n^2$)). Although the interpretation of results can be subjective.
 
 \subsubsection{Cell based outlier detection}
 This algorithm can be described has a fast outlier detection algorithm for large datasets. This algorithm can avoid large computations on the majority part of dataset by filtering the initial dataset.
@@ -99,6 +100,45 @@ The Market will be implemented as a web-service, to facilitate the distribution 
 \label{fig:marketArc}
 \end{figure}
 
+
+\subsection{Problem characterization}
+
+Trying to find similarities between different problems is not a trivial task. To attempt to solve this issue, each problem will be described using 3 different type of measures, as described by Henery (1994)\cite{bib:Hen}. 
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l l}
+\textbf{Variable} & \textbf{Description} \\
+\hline
+N &  Number of examples in the dataset \\
+p & Number of attributes. \\
+k & Number of classes. \\
+BinAtt & Proportion of binary attributes.\\
+CatAtt & Proportion of categorical attributes. \\
+UnAtt & Proportion of unknown attributes. \\
+Cost & Cost matrix indicator (it is equal to 1 if costs are used and 0 otherwise) \\
+\hline
+\end{tabular}
+\caption{General measures to describe a problem}
+\label{tab:gen}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l p{10cm}}
+\textbf{Variable} & \textbf{Description} \\
+\hline
+SDRatio & Standard deviation ratio. Geometric mean ratio of standard deviations of the individual populations to the pooled standard deviation. \\ 
+Corr.abs & Mean value of correlations between attributes (mean over all pairs of attributes and all populations). \\
+CanCor & Canonical correlation for the best single linear combination of attributes that discriminates between populations. \\
+Fract & The first eigenvalue of canonical discriminant matrix divided by the sum of all eigenvalues. \\
+Skewness &  Mean of $ \frac{| E(X-\mu)^3 |}{\sigma^3}$.\\
+Kurtosis &  Mean of $\frac{| E(X-\mu)^4 |} {\sigma^4}$.\\
+\hline
+\end{tabular}
+\caption{Statistical measures to describe a problem}
+\label{tab:stat}
+\end{table}
 
 \subsection{Agents}
 
