@@ -147,12 +147,10 @@ Each algorithm will be implemented as an independent agent, that communicates wi
 The pre-processing algorithms will receive the raw problem data as input and are responsible for cleaning the data (remove duplicates, remove nulls, date conversion, etc.), while each Machine Learning algorithm will receive the clean versions of the data and try to solve the problem. 
 
 
-
-
-
 \subsection{Negotiation Process}
 
-
+On receiving a new problem, the Market sends it to the algorithms and there, the history dates, of previous negotiations are used, to return all possible solutions.
+Then, with the possibilities in hand, the Market gives the agent each possible solution to each problems received.
 
 
 \section{Technology}
