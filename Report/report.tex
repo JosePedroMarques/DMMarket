@@ -47,7 +47,7 @@ Data Mining is a very broad area, with several algorithms applicable to the same
 
 The purpose of this article is to present the framework that will be developed, as well as all the protocols that will be implemented. To best demonstrate the inner workings of the framework, a specific problem was chosen.
 
-This article will include a description of the problem, the data available (Section 2.2) and it's difficulties (Section 2.3). This is followed by a description of the chosen algorithms (Section 2.4).
+This article will include a description of the problem, the data available (Section 2.2) and it's difficulties \ref{sec:difficulties}(Section 2.3). This is followed by a description of the chosen algorithms (Section 2.4).
 
 \section{The Problem}
 
@@ -67,6 +67,7 @@ The idea then is to automatically select a subset of the transactions that inclu
 The data is organized in 2 files per month, one with the outgoing transactions and one with the incoming. Each line is a transaction, with 18 attributes, such as item id, price paid, weight, etc. The last attribute is a boolean attribute error, which indicates if that transaction contains (or not) an error.
 
 \subsection{Difficulties}
+\label{sec:difficulties}
 
 One of the problems with the data is related to the attribute "weight", as it might contain null values when the weight of an item as less than a given threshold. But the biggest difficulty we will face is
 the obviously unbalanced classes, as we expect only a few errors in the totality of the transactions. Therefore, the algorithms must be carefully chosen, having this problem in mind.
